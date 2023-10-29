@@ -35,7 +35,9 @@
     </div>
     <div class="logout">
         <div class="user-login py-2 h-8 flex items-center justify-center border-b-[1px] border-t-[1px] border-gray-400">
-            <button class="w-full">Logout</button>
+            <a href="/logout" class="w-full flex justify-center">
+                Logout
+            </a>
         </div>
     </div>
 
