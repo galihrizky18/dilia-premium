@@ -2,7 +2,7 @@
 
 
 <div class="body flex flex-row w-screen">
-    <x-side-bar-admin></x-side-bar-admin>
+    <x-side-bar-admin :userCurrent="$userCurrent" />
 
 
     <div class="content ml-[270px] h-[1000px]">

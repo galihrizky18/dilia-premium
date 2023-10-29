@@ -20,17 +20,21 @@
     </div>
     <div class="body-sideBar h-full overflow-y-auto ">
         <div class="user-login py-2 h-14 flex items-center justify-center border-b-[1px] border-gray-400">
-            <span class="text-lg font-Playfair">Garix</span>
+            <span class="text-lg font-Playfair">{{ $userCurrent->nama }}</span>
         </div>
         <div class="menu flex flex-col font-della mt-2">
-            <div class="menu1 flex p-2 flex-row items-center rounded-xl hover:bg-blue-600 hover:font-bold">
-                <i class="fa-sharp fa-solid fa-users fa-lg"></i>
-                <div class="ml-3 ">Kelola User</div>
-            </div>
-            <div class="menu2 flex p-2 flex-row items-center rounded-xl hover:bg-blue-600 hover:font-bold">
-                <i class="fa-sharp fa-solid fa-users fa-lg"></i>
-                <div class="ml-3 ">Menu 2</div>
-            </div>
+            <a href="">
+                <div class="menu1 flex p-2 flex-row items-center rounded-xl hover:bg-blue-600 hover:font-bold">
+                    <i class="fa-sharp fa-solid fa-users fa-lg"></i>
+                    <div class="ml-3 ">Kelola User</div>
+                </div>
+            </a>
+            <a href="">
+                <div class="menu2 flex p-2 flex-row items-center rounded-xl hover:bg-blue-600 hover:font-bold">
+                    <i class="fa-sharp fa-solid fa-users fa-lg"></i>
+                    <div class="ml-3 ">Menu 2</div>
+                </div>
+            </a>
         </div>
     </div>
     <div class="logout">
