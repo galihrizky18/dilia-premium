@@ -55,11 +55,7 @@
                             <i id="iconUsername" class="fa-solid text-gray-400 fa-user fa-lg"></i>
                         </div>
                     </div>
-                    @error('username')
-                        <div class="ml-[4.5rem]">
-                            <span class="text-red-500 text-sm">{{ $message }}</span>
-                        </div>
-                    @enderror
+
                     <div class="flex justify-center">
                         <input type="password" name="password" id="password"
                             class="border border-gray-300 w-[90%] sm:w-[80%] h-12 px-5 mt-3" placeholder="Password">
@@ -67,12 +63,8 @@
                             <i id="iconPassword" class="fa-solid fa-lock fa-lg text-gray-400"></i>
                         </div>
                     </div>
-                    @error('password')
-                        <div class="ml-[4.5rem]">
-                            <span class="text-red-500 text-sm">{{ $message }}</span>
-                        </div>
-                    @enderror
-                    <div class="submit w-full flex justify-center mt-8">
+
+                    <div class="submit w-full flex justify-center mt-5">
                         <button type="submit"
                             class="w-[80%] h-10 bg-yellow-300 hover:bg-yellow-400 font-bold text-xl border border-yellow-400">Login</button>
                     </div>
@@ -99,8 +91,6 @@
     const iconUsername = document.getElementById('iconUsername');
     const passwordField = document.getElementById('password');
     const iconPassword = document.getElementById('iconPassword');
-
-
     usernameField.addEventListener('focus', () => {
         iconUsername.classList.remove('text-gray-400');
         iconUsername.classList.add('text-gray-600');
