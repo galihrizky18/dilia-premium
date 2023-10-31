@@ -11,8 +11,8 @@
     </div>
     <div class="h-screen flex justify-center mt-3">
         <div
-            class="card-login sm:h-[75%] h-[65%] w-[90%] sm:w-[50%] p-2 sm:p-5 mt-10 sm:mt-0 flex flex-col items-center bg-[#f3f2f2] shadow-xl">
-            <div class="title text-3xl font-bold font-Playfair mb-3">
+            class="card-login sm:h-[55%] h-[50%] w-[90%] sm:w-[40%] p-2 sm:p-5 mt-14 sm:mt-0 flex flex-col items-center bg-[#f3f2f2] shadow-xl">
+            <div class="title text-xl font-bold font-Playfair mb-3">
                 User Login
             </div>
 
@@ -64,32 +64,38 @@
                     @csrf
                     <div class=" flex justify-center">
                         <input type="text" name="username" id="username"
-                            class="border border-gray-300 w-[90%] sm:w-[80%] h-12 px-5" placeholder="Username">
-                        <div class="icon absolute  sm:right-[33%] right-[70px] mt-3">
-                            <i id="iconUsername" class="fa-solid text-gray-400 fa-user fa-lg"></i>
+                            class="border border-gray-300 w-[90%] sm:w-[80%] h-10 px-5 placeholder:text-base @error('username')
+                                border-red-500
+                            @enderror"
+                            placeholder="Username">
+                        <div class="icon absolute  sm:right-[37%] right-[70px] mt-3">
+                            <i id="iconUsername" class="fa-solid text-gray-400 fa-user fa-md"></i>
                         </div>
                     </div>
 
                     <div class="flex justify-center">
                         <input type="password" name="password" id="password"
-                            class="border border-gray-300 w-[90%] sm:w-[80%] h-12 px-5 mt-3" placeholder="Password">
-                        <div class="icon absolute sm:right-[33%] right-[70px] mt-6">
-                            <i id="iconPassword" class="fa-solid fa-lock fa-lg text-gray-400"></i>
+                            class="border border-gray-300 w-[90%] sm:w-[80%] h-10 px-5 mt-3 placeholder:text-base @error('password')
+                            border-red-500
+                        @enderror"
+                            placeholder="Password">
+                        <div class="icon absolute sm:right-[37%] right-[70px] mt-6">
+                            <i id="iconPassword" class="fa-solid fa-lock fa-md text-gray-400"></i>
                         </div>
                     </div>
 
                     <div class="submit w-full flex justify-center mt-5">
                         <button type="submit"
-                            class="w-[80%] h-10 bg-yellow-300 hover:bg-yellow-400 font-bold text-xl border border-yellow-400">Login</button>
+                            class="w-[80%] h-10 bg-yellow-300 hover:bg-yellow-400 font-bold text-lg border border-yellow-400">Login</button>
                     </div>
                 </form>
             </div>
 
             <div class="forgot mt-5 flex justify-between w-[80%]">
-                <a href="/register" class="text-gray-500 hover:text-gray-700">
+                <a href="/register" class="text-gray-500 hover:text-gray-700 text-sm">
                     Register
                 </a>
-                <a href="" class="text-gray-500 hover:text-gray-700">
+                <a href="" class="text-gray-500 hover:text-gray-700 text-sm">
                     Forgot Password?
                 </a>
             </div>

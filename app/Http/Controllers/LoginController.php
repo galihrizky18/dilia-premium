@@ -33,15 +33,15 @@ class LoginController extends Controller
 
         if(Auth::attempt($validateData)){
             $request->session()->regenerate();
-                if(Auth::user()->role === 'user'){
-                    $request->session()->regenerate();
-                    return redirect()->intended('/user');
-                }
-                else if(Auth::user()->role === 'admin'){
-                    $request->session()->regenerate();
-                    return redirect()->intended('/admin');
-                }
+            if(Auth::user()->role === 'user'){
+                $request->session()->regenerate();
+                return redirect()->intended('/user');
             }
+            else if(Auth::user()->role === 'admin'){
+                $request->session()->regenerate();
+                return redirect()->intended('/admin');
+            }
+        }
         
         return redirect()->route('login')->with('failLogin', 'Login Failed');
     }

@@ -2,11 +2,12 @@
 
 
 <div class="body flex flex-row w-screen">
-    <x-side-bar-admin :userCurrent="$userCurrent" />
+    {{-- <x-side-bar-admin :userCurrent="$userCurrent" /> --}}
+    <x-side-bar-admin :userCurrent="$dataAdmin" />
 
 
-    <div class="content ml-[270px] h-[1000px]">
-        <h1 class="">Ini Dashboard ADMIN</h1>
+    <div class="content ml-[20%] h-[1000px] w-full ">
+        <div class="title w-full p-5 border border-black"> Ini Dashboard</div>
 
 
     </div>

@@ -24,6 +24,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::middleware('auth', 'userRole:admin')->group(function (){
     Route::prefix('admin')->group(function (){
         Route::get('/', [AdminController::class, 'dashboard']);
+        Route::get('/users', [AdminController::class, 'kelolaUser']);
     });
 });
 Route::middleware('auth', 'userRole:user')->group(function (){

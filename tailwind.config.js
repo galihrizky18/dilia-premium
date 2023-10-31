@@ -8,7 +8,15 @@ export default {
         "./node_modules/tw-elements/dist/js/**/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                della: ["Della Respira", "serif"],
+                karma: ["Karma", "serif"],
+                mirza: ["Mirza", "serif"],
+                playfair: ["Playfair Display", "serif"],
+                poppins: ["Poppins", "sans-serif"],
+            },
+        },
     },
     plugins: [require("tw-elements/dist/plugin.cjs")],
 };
