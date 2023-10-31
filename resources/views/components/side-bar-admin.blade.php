@@ -59,7 +59,7 @@
     </div>
 
     <div id="burger-android"
-        class="burger-android hidden sm:hidden fixed left-[53%] top-5 bg-[#343A40] h-10 w-12 rounded-lg"
+        class="burger-android hidden sm:hidden fixed left-[53%] top-5 bg-[#343A40] h-10 w-12 rounded-lg cursor-pointer"
         onclick="toggleSidebarAndro()">
         <div class=" flex items-center justify-center border border-white h-full">
             <img src="{{ asset('asset/icon-burger-andro.svg') }}" alt="" class="w-8 ">

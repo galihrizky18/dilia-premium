@@ -1,4 +1,4 @@
-<div class="burger-icon mr-3" onclick="toggleSidebar()">
+<div class="burger-icon mr-3 cursor-pointer" onclick="toggleSidebar()">
     <img src="{{ asset('asset/icon-burger.svg') }}" alt="" class="w-8">
 </div>
 

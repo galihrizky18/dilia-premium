@@ -21,11 +21,13 @@ Route::get('/login', [LoginController::class, 'loginPage']);
 Route::post('/login', [LoginController::class, 'autentikasiLogin']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::middleware('auth', 'userRole:admin')->group(function (){
-    Route::prefix('admin')->group(function (){
-        Route::get('/', [AdminController::class, 'dashboard']);
-        Route::get('/users', [AdminController::class, 'kelolaUser']);
+Route::middleware(['auth', 'userRole:admin'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard']);
+    Route::get('/users', [AdminController::class, 'kelolaUser']);
+    Route::prefix('filter')->group(function(){
+        Route::post('status', [AdminController::class, 'filterStatus']);
     });
+    Route::post('/user/{id}', [AdminController::class, 'updateUser']);
 });
 Route::middleware('auth', 'userRole:user')->group(function (){
     Route::prefix('user')->group(function (){

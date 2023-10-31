@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('id_user')->nullable();
             $table->string('role');
-            $table->enum('status', ['premium', 'non-premium'])->default('non-premium');
+            $table->enum('status', ['premium', 'non-premium'])->default('non-premium')->nullable();
             $table->string('username');
             $table->string('password')->hash();
             $table->rememberToken();

@@ -18,5 +18,9 @@ export default {
             },
         },
     },
-    plugins: [require("tw-elements/dist/plugin.cjs")],
+    plugins: [require("tw-elements/dist/plugin.cjs"), require("daisyui")],
+
+    daisyui: {
+        themes: ["light"], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
+    },
 };
