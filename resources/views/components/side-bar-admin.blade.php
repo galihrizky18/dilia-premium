@@ -9,8 +9,9 @@
     }
 </style>
 
-<div class="sidebar-admin hidden sm:flex flex-row">
-    <div class="flex flex-col fixed h-full border-black w-[20%] p-3 bg-[#343A40] text-white font-Playfair shadow-xl">
+<div class="flex flex-row">
+    <div id="sideBarAdmin"
+        class="sidebar-admin hidden sm:flex flex-col fixed h-full border-black w-[50%] sm:w-[20%] p-3 bg-[#343A40] text-white font-Playfair shadow-xl">
         <div class="logo flex flex-row border-b-[1px] border-gray-400 pb-3">
             <div class="gambar w-[20%] h-[110%] bg-white rounded-full">
                 <img src="{{ asset('asset/logo.png') }}" alt="">
@@ -55,10 +56,13 @@
                 </a>
             </div>
         </div>
-
     </div>
 
-    <div class="burger-button fixed text-red-500 ml-[20%]">
-        asdas
+    <div id="burger-android"
+        class="burger-android hidden sm:hidden fixed left-[53%] top-5 bg-[#343A40] h-10 w-12 rounded-lg"
+        onclick="toggleSidebarAndro()">
+        <div class=" flex items-center justify-center border border-white h-full">
+            <img src="{{ asset('asset/icon-burger-andro.svg') }}" alt="" class="w-8 ">
+        </div>
     </div>
 </div>
