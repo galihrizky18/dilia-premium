@@ -5,21 +5,21 @@
 <script>
     function toggleSidebar() {
         const sideBarAdmin = document.getElementById('sideBarAdmin');
-        const bodyUsers = document.getElementById('bodyUsers');
+        const bodyContent = document.getElementById('bodyContent');
         const burgerAndroid = document.getElementById('burger-android');
 
         // sidebar hilang
         if (sideBarAdmin.classList.contains('hidden')) {
             sideBarAdmin.classList.remove('hidden');
             sideBarAdmin.classList.add('sm:flex');
-            bodyUsers.classList.add('sm:ml-[20%]');
+            bodyContent.classList.add('sm:ml-[20%]');
             burgerAndroid.classList.remove('hidden');
 
 
         } else if (!sideBarAdmin.classList.contains('hidden')) { //sidebar muncul
             sideBarAdmin.classList.remove('sm:flex');
             sideBarAdmin.classList.add('hidden');
-            bodyUsers.classList.remove('sm:ml-[20%]');
+            bodyContent.classList.remove('sm:ml-[20%]');
             burgerAndroid.classList.remove('hidden');
         }
 

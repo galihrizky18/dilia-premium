@@ -4,15 +4,19 @@
     {{-- <x-side-bar-admin :userCurrent="$userCurrent" /> --}}
     <x-side-bar-admin :userCurrent="$dataAdmin" />
 
-    <div id="bodyUsers" class="content sm:ml-[20%] p-3 font-della w-full">
-        <div class="title w-full p-3 bg-white font-bold rounded-lg flex flex-row items-center">
-            <x-burger-icon></x-burger-icon>
-            <span class="text-black">Users</span>
-        </div>
+    <div id="bodyContent" class="content sm:ml-[20%] p-3 font-della w-full">
+        {{-- component TItle Page --}}
+        <x-title-page title="Users"></x-title-page>
 
         <div>
-            <div class="roud-map mt-3 bg-white p-3 text-sm text-gray-400 rounded-lg">admin / <span
-                    class="text-black">user</span></div>
+            <div class="roud-map mt-3 px-7 bg-white p-2 text-sm text-gray-400 rounded-lg">
+                <div class="text-sm breadcrumbs">
+                    <ul>
+                        <li class="hover:text-black transition"><a href="/admin">Admin</a></li>
+                        <li class="text-black">Kelola User</li>
+                    </ul>
+                </div>
+            </div>
 
             <div class="body bg-white mt-5 rounded-lg p-3 w-full ">
                 <div class="filter border-t border-b p-2 border-gray-300">
@@ -32,16 +36,34 @@
                             </div>
                             <div class="tombol flex flex-col justify-end items-center">
                                 <button type="submit"
-                                    class="bg-gray-400 w-[90%] text-white font-bold p-[0.3rem] rounded-xl hover:bg-gray-500 transition">Filter
+                                    class="bg-gray-400 w-[90%] text-white font-bold p-[0.3rem] rounded-xl hover:bg-gray-500 transition">
+                                    Filter
                                 </button>
                             </div>
                         </div>
                     </form>
-
                 </div>
-
                 <div class=" data-pelanggans mt-8 w-full ">
-
+                    @if (session()->has('successUpdate'))
+                        <div class="alert alert-success p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6"
+                                fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>{{ session('successUpdate') }}</span>
+                        </div>
+                    @endif
+                    @if (session()->has('successDelete'))
+                        <div class="alert alert-error p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6"
+                                fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>{{ session('successDelete') }}</span>
+                        </div>
+                    @endif
                     <table id="example" class="display text-black">
                         <thead>
                             <tr>
@@ -59,24 +81,31 @@
                             {{ $no = 1 }}
                             @foreach ($dataUser as $user)
                                 <tr>
-                                    <td class="flex justify-center">{{ $no++ }}</td>
+                                    <td class="flex items-center justify-center">{{ $no++ }}</td>
                                     <td>{{ $user->user->id_user }}</td>
                                     <td>{{ $user->user->username }}</td>
                                     <td>{{ $user->first_name }} {{ $user->last_name }}</td>
                                     <td class="flex justify-center">
                                         <button disabled
                                             class="{{ $user->user->status == 'premium' ? 'bg-success-600' : 'bg-red-500' }} rounded-xl py-1 px-2 text-white">
-                                            {{ $user->user->status }}
+                                            {{ ucwords($user->user->status) }}
                                         </button>
                                     </td>
                                     <td>{{ $user->noHp }}</td>
                                     <td class="flex flex-wrap gap-[0.3rem] items-center justify-start">
                                         <a href="#my_modal_{{ $user->user->id_user }}"
-                                            class="btn btn-sm bg-sky-500 text-white">Edit</a>
-                                        <button
-                                            class="bg-red-500 hover:bg-red-600 text-white w-14 rounded-xl  p-[0.3rem]">
-                                            Hapus
-                                        </button>
+                                            class="btn btn-sm bg-sky-500 text-white hover:bg-sky-600">Edit</a>
+                                        <div>
+                                            <form action="/admin/user/{{ $user->user->id_user }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class=" bg-red-500 hover:bg-red-600 text-white w-14 rounded-xl p-[0.3rem]"
+                                                    onclick="return confirm('Yakin Hapus??')">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -113,7 +142,8 @@
                         <div class="lastName flex flex-col">
                             <label for="">Last Name</label>
                             <input name="lastName" id="lastName" type="text" placeholder="{{ $user->last_name }}"
-                                value="{{ $user->last_name }}" class="bg-white border border-gray-400 px-2 text-black">
+                                value="{{ $user->last_name }}"
+                                class="bg-white border border-gray-400 px-2 text-black">
                         </div>
                         <div class="status flex flex-col">
                             <label for="">Status</label>

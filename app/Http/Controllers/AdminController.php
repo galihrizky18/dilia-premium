@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\UserChart;
 use App\Models\Pelanggan;
 use App\Models\User;
 use Illuminate\Auth\Events\Validated;
@@ -11,10 +12,18 @@ use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
+    public function dashboard(UserChart $userCharts){
         $userCurrent = Auth::user();
         $dataAdmin = $userCurrent->admins->first();
-        return view('pages/admin/dashboardAdmin', compact('userCurrent', 'dataAdmin'));
+        $dataUser = Pelanggan::all();
+        $countAllUser = $dataUser->count();
+        $countPremiumUser = $dataUser->where('user.status', 'premium')->count();
+        $countNonPremiumUser = $dataUser->where('user.status', 'non-premium')->count();
+
+        // Users Chart
+        $userChart = $userCharts->build();
+
+        return view('pages/admin/dashboardAdmin', compact('userCurrent', 'dataAdmin', 'dataUser', 'countPremiumUser', 'countNonPremiumUser', 'countAllUser', 'userChart'));
     }
     public function kelolaUser(){
         $userCurrent = Auth::user();
@@ -73,6 +82,17 @@ class AdminController extends Controller
 
         
 
+    }
+
+    public function deleteUser($id){
+        $user = User::where('id_user', $id);
+        $pelanggan = Pelanggan::where('id_pelanggan', $id);
+
+        if($user && $pelanggan){
+            $user->delete();
+            $pelanggan->delete();
+        }
+        return redirect()->back()->with('successDelete', 'Data Berhasil Di Hapus');
     }
 
 

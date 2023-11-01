@@ -9,7 +9,7 @@
     }
 </style>
 
-<div class="flex flex-row">
+<div class="flex flex-row z-50">
     <div id="sideBarAdmin"
         class="sidebar-admin hidden sm:flex flex-col fixed h-full border-black w-[50%] sm:w-[20%] p-3 bg-[#343A40] text-white font-Playfair shadow-xl">
         <div class="logo flex flex-row border-b-[1px] border-gray-400 pb-3">

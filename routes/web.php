@@ -28,6 +28,7 @@ Route::middleware(['auth', 'userRole:admin'])->prefix('admin')->group(function (
         Route::post('status', [AdminController::class, 'filterStatus']);
     });
     Route::post('/user/{id}', [AdminController::class, 'updateUser']);
+    Route::delete('/user/{id}', [AdminController::class, 'deleteUser']);
 });
 Route::middleware('auth', 'userRole:user')->group(function (){
     Route::prefix('user')->group(function (){

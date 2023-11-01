@@ -49,6 +49,13 @@ class DatabaseSeeder extends Seeder
             'username' => 'user2',
             'password' => bcrypt('123'),
         ]);
+        User::create([
+            'id_user' => 'P3',
+            'role' => 'user',
+            'status' => 'non-premium',
+            'username' => 'user3',
+            'password' => bcrypt('123'),
+        ]);
         Pelanggan::create([
             'id_pelanggan'=>'P1',
             'first_name'=>'Rizky ',
@@ -60,6 +67,14 @@ class DatabaseSeeder extends Seeder
         Pelanggan::create([
             'id_pelanggan'=>'P2',
             'first_name'=>'Heru ',
+            'last_name'=>'Gantengs',
+            'provinsi'=>'Sumatera Selatan',
+            'kota'=>'Palembang',
+            'noHp'=>'08123456789',
+        ]);
+        Pelanggan::create([
+            'id_pelanggan'=>'P3',
+            'first_name'=>'Dico ',
             'last_name'=>'Gantengs',
             'provinsi'=>'Sumatera Selatan',
             'kota'=>'Palembang',
