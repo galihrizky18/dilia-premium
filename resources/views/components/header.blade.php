@@ -9,6 +9,9 @@
     {{-- icon web --}}
     <link rel="shortcut icon" href="{{ asset('asset/logo.png') }}" type="image/x-icon">
 
+    {{-- swiper --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     {{-- Data Table --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">

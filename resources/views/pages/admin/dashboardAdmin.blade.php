@@ -1,13 +1,17 @@
-<x-header></x-header>
+<x-header>
+    @slot('title')
+        Dashboard
+    @endslot
+</x-header>
 
 
 <div class="body flex flex-row w-screen">
     {{-- <x-side-bar-admin :userCurrent="$userCurrent" /> --}}
-    <x-side-bar-admin :userCurrent="$dataAdmin" />
+    <x-admin.side-bar-admin :userCurrent="$dataAdmin" />
 
 
     <div id="bodyContent" class="content sm:ml-[20%] p-3 font-della w-full h-screen">
-        <x-title-page title="Dashboard"></x-title-page>
+        <x-admin.title-page title="Dashboard"></x-admin.title-page>
 
         <div class="roud-map mt-3 px-7 bg-white p-2 text-sm text-gray-400 rounded-lg">
             <div class="text-sm breadcrumbs">

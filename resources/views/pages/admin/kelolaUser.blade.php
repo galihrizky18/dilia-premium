@@ -1,12 +1,16 @@
-<x-header></x-header>
+<x-header>
+    @slot('title')
+        Kelola User
+    @endslot
+</x-header>
 
 <div class="body flex flex-row h-screen">
     {{-- <x-side-bar-admin :userCurrent="$userCurrent" /> --}}
-    <x-side-bar-admin :userCurrent="$dataAdmin" />
+    <x-admin.side-bar-admin :userCurrent="$dataAdmin" />
 
     <div id="bodyContent" class="content sm:ml-[20%] p-3 font-della w-full">
         {{-- component TItle Page --}}
-        <x-title-page title="Users"></x-title-page>
+        <x-admin.title-page title="Users"></x-admin.title-page>
 
         <div>
             <div class="roud-map mt-3 px-7 bg-white p-2 text-sm text-gray-400 rounded-lg">
