@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Charts\UserChart;
 use App\Models\Pelanggan;
 use App\Models\User;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
 {

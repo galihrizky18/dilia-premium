@@ -12,8 +12,7 @@
 
     {{-- hero --}}
     <div id="home" class=" hero w-full">
-        <div class="hero min-h-screen"
-            style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
+        <div class="hero min-h-screen" style="background-image: url({{ asset('asset/hero-image.svg') }});">
             <div class="hero-overlay bg-opacity-60"></div>
             <div class="hero-content text-center text-neutral-content">
                 <div class="max-w-md">
@@ -21,8 +20,12 @@
                     <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
                         exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <div class="flex flex-row justify-center items-center gap-5">
-                        <button
-                            class="btn btn-primary hover:bg-transparent hover:border-2 hover:border-white">DAFTAR</button>
+                        <form action="{{ route('user.bePremium', ['id' => $currentUser->id_user]) }}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                class="btn btn-primary hover:bg-transparent hover:border-2 hover:border-white"
+                                onclick="return confirm('Yakin Menjadi Pelanggan Premium??')">DAFTAR</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -66,27 +69,27 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper px-20">
                     <!-- Slides -->
-                    @for ($i = 0; $i < 7; $i++)
+
+                    @foreach ($dataTesti as $testi)
                         <div class="swiper-slide">
                             <div class="swiper-slide">
                                 <div class="card bg-base-100 shadow-xl">
                                     <div class="card-body flex flex-col gap-5">
                                         <h2 class="card-title flex justify-center ">
                                             <img src="{{ asset('asset/logo.png') }}" alt=""
-                                                class="w-[30%] rounded-full border border-black">
+                                                class="w-[100%] sm:w-[30%] rounded-full border border-black">
                                         </h2>
-                                        <div class="name text-center font-bold text-lg">
-                                            <span>Galih Rizky</span>
+                                        <div class="name text-center font-bold text-base sm:text-lg ">
+                                            <span>{{ $testi->first_name }} {{ $testi->last_name }}</span>
                                         </div>
-                                        <div class="description">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nemo quas
-                                            quis reiciendis. Nemo, aliquam ullam? Sint et aut veniam.
-                                        </div>
+                                        <div class="description text-center text-xs sm:text-base line-clamp-2">
+                                            {{ $testi->komentar }}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
+
 
                 </div>
                 <!-- If we need pagination -->
@@ -116,10 +119,12 @@
         </nav>
         <nav class=" w-full flex flex-col justify-center">
             <header class="footer-title ">Feedback Us</header>
-            <form action="" class="w-full flex flex-col gap-5">
-                <input type="text" placeholder="Comment" class="input input-bordered w-full max-w-xs" />
+            <form action="/testi" class="w-full flex flex-col gap-5" method="POST">
+                @csrf
+                <input type="text" id="komen" name="komen" placeholder="Comment"
+                    class="input input-bordered w-full text-black rounded-xl p-3" />
                 <div class="tombol flex justify-center">
-                    <button class="bg-sky-600 hover:bg-sky-400 p-3 rounded-xl">Submit</button>
+                    <button type="submit" class="bg-sky-600 hover:bg-sky-400 p-3 rounded-xl">Submit</button>
                 </div>
             </form>
         </nav>

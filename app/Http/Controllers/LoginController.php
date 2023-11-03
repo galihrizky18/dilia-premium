@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pelanggan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Psy\Readline\Hoa\Console;
-use Inertia\Inertia;
+
 
 
 class LoginController extends Controller
@@ -48,33 +48,50 @@ class LoginController extends Controller
 
     public function register(Request $request){
         $validateData = $request->validate([
-            'nama' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'username' => 'required',
             'password' => 'required',
-            'rePassword' => 'required',
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'noHp' => 'required|numeric',
         ],[
-            'nama.required' => 'Nama tidak boleh kosong',
+            'first_name.required' => 'First Name tidak boleh kosong',
+            'last_name.required' => 'Last name tidak boleh kosong',
+            'provinsi.required' => 'Provinsi tidak boleh kosong',
+            'kota.required' => 'Kota tidak boleh kosong',
+            'noHp.required' => 'No Hp tidak boleh kosong',
+            'noHp.numeric' => 'No Hp Harus Angka',
             'username.required' => 'Username tidak boleh kosong',
             'password.required' => 'Password tidak boleh kosong',
-            'rePassword.required' => 'Password tidak boleh kosong',
         ]);
-            
-            if(User::where('username', $validateData['username'])->exists()){
-                return redirect()->back()->with('akunAda', 'Akun sudah ada');
-            }
     
-            $user = new User();
-            $user->nama = $validateData['nama'];
-            $user->role = 'user';
-            $user->username = $validateData['username'];
-            $user->password = $validateData['password'];
-            $user->save();
-            return redirect('/')->with('successCreateData', 'Berhasil menambah Data');
+        $jumlahhUser = Pelanggan::count();
 
-        
-
-
+        if(User::where('username', $validateData['username'])->exists()){
+            return redirect()->back()->with('akunAda', 'Akun sudah ada');
+        }
+    
+        $user = new User();
+        $user->id_user = $validateData['first_name'].'_'.$validateData['last_name'].'_'.($jumlahhUser+1);
+        $user->role = 'user';
+        $user->status = 'non-premium';
+        $user->username = $validateData['username'];
+        $user->password = bcrypt($validateData['password']); // Enkripsi password
+        $user->save();
+    
+        $pelanggan = new Pelanggan();
+        $pelanggan->id_pelanggan = $validateData['first_name'].'_'.$validateData['last_name'].'_'.($jumlahhUser+1);
+        $pelanggan->first_name = $validateData['first_name'];
+        $pelanggan->last_name = $validateData['last_name'];
+        $pelanggan->provinsi = $validateData['provinsi'];
+        $pelanggan->kota = $validateData['kota'];
+        $pelanggan->noHp = (string) $validateData['noHp']; // Simpan nomor HP sebagai string
+        $pelanggan->save();
+    
+        return redirect('/')->with('successCreateData', 'Berhasil menambah Data');
     }
+    
 
 
     public function logout(){

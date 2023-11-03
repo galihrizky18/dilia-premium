@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Pelanggan;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -95,6 +96,31 @@ class DatabaseSeeder extends Seeder
             'provinsi'=> 'Sumatera Selatan',
             'kota'=> 'Lubuk Linggau',
             'noHp'=> '089754788383843',
+        ]);
+
+        Testimonial::create([
+            'id_user'=> 'P2',
+            'first_name'=>'Heru ',
+            'last_name'=>'Gantengs',
+            'noHp'=>'08123456789',
+            'komentar'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, iure enim. Totam, explicabo necessitatibus! Facilis dolore maxime aspernatur temporibus ab.
+            ',
+        ]);
+        Testimonial::create([
+            'id_user'=> 'P1',
+            'first_name'=>'Rizky ',
+            'last_name'=>'Gantengs',
+            'noHp'=>'08123456789',
+            'komentar'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, iure enim. Totam, explicabo necessitatibus! Facilis dolore maxime aspernatur temporibus ab.
+            ',
+        ]);
+        Testimonial::create([
+            'id_user'=> 'P3',
+            'first_name'=>'Dico ',
+            'last_name'=>'Gantengs',
+            'noHp'=>'08123456789',
+            'komentar'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, iure enim. Totam, explicabo necessitatibus! Facilis dolore maxime aspernatur temporibus ab.
+            ',
         ]);
     }
 }

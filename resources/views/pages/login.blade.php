@@ -95,9 +95,6 @@
                 <a href="/register" class="text-gray-500 hover:text-gray-700 text-sm">
                     Register
                 </a>
-                <a href="" class="text-gray-500 hover:text-gray-700 text-sm">
-                    Forgot Password?
-                </a>
             </div>
 
         </div>

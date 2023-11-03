@@ -68,6 +68,7 @@
                             <span>{{ session('successDelete') }}</span>
                         </div>
                     @endif
+
                     <table id="example" class="display text-black">
                         <thead>
                             <tr>
@@ -80,8 +81,8 @@
                                 <th class="w-[15%]"></th>
                             </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
                             {{ $no = 1 }}
                             @foreach ($dataUser as $user)
                                 <tr>
