@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,15 @@ class PelangganFactory extends Factory
      */
     public function definition(): array
     {
+        $idUser = User::inRandomOrder()->first('id_user')->id_user;
+
         return [
-            //
+            'id_pelanggan'=>$idUser,
+            'first_name'=> $this->faker->firstName(),
+            'last_name'=> $this->faker->lastName() ,
+            'provinsi'=> $this->faker->citySuffix(),
+            'kota'=> $this->faker->city(),
+            'noHp'=> $this->faker->phoneNumber(),
         ];
     }
 }

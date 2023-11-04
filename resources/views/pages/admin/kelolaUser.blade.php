@@ -71,43 +71,45 @@
 
                     <table id="example" class="display text-black">
                         <thead>
-                            <tr>
-                                <th class="w-[5%]">No</th>
-                                <th class="w-[10%]">Id User</th>
-                                <th class="">Username</th>
-                                <th class="">Name</th>
-                                <th class="w-[15%]">Status</th>
-                                <th class="w-[15%]">No Hp</th>
-                                <th class="w-[15%]"></th>
+                            <tr class="text-center">
+                                <th class="w-[5%] text-center">No</th>
+                                <th class="w-[10%] text-center">Id User</th>
+                                <th class="w-[15%] text-center">Username</th>
+                                <th class="w-[18%] text-center">Name</th>
+                                <th class=" text-center">Status</th>
+                                <th class="w-[17%] text-center">No Hp</th>
+                                <th class="w-[15%] text-center"></th>
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody c>
                             {{ $no = 1 }}
                             @foreach ($dataUser as $user)
                                 <tr>
-                                    <td class="flex items-center justify-center">{{ $no++ }}</td>
+                                    <td>{{ $no++ }}</td>
                                     <td>{{ $user->user->id_user }}</td>
                                     <td>{{ $user->user->username }}</td>
                                     <td>{{ $user->first_name }} {{ $user->last_name }}</td>
-                                    <td class="flex justify-center">
+                                    <td>
                                         <button disabled
-                                            class="{{ $user->user->status == 'premium' ? 'bg-success-600' : 'bg-red-500' }} rounded-xl py-1 px-2 text-white">
+                                            class="{{ $user->user->status == 'premium' ? 'bg-success-600' : 'bg-red-500' }} rounded-xl py-1 px-2 text-white ">
                                             {{ ucwords($user->user->status) }}
                                         </button>
                                     </td>
                                     <td>{{ $user->noHp }}</td>
-                                    <td class="flex flex-wrap gap-[0.3rem] items-center justify-start">
+                                    <td class="flex gap-[0.3rem] ">
                                         <a href="#my_modal_{{ $user->user->id_user }}"
-                                            class="btn btn-sm bg-sky-500 text-white hover:bg-sky-600">Edit</a>
+                                            class="btn btn-sm bg-sky-500 text-white hover:bg-sky-600">
+                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i>
+                                        </a>
                                         <div>
                                             <form action="/admin/user/{{ $user->user->id_user }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class=" bg-red-500 hover:bg-red-600 text-white w-14 rounded-xl p-[0.3rem]"
+                                                    class=" bg-red-500 hover:bg-red-600 text-white w-10 rounded-xl p-[0.3rem]"
                                                     onclick="return confirm('Yakin Hapus??')">
-                                                    Delete
+                                                    <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
                                                 </button>
                                             </form>
                                         </div>
@@ -181,9 +183,10 @@
     <script>
         new DataTable('#example', {
             responsive: true,
-            paging: false,
+            paging: true,
             scrollCollapse: true,
-            scrollY: '300px',
+            scrollY: '400px',
+            pagingType: 'full_numbers',
             autoWidth: true,
         });
     </script>

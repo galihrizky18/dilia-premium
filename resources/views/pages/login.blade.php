@@ -11,7 +11,7 @@
     </div>
     <div class="h-screen flex justify-center mt-3">
         <div
-            class="card-login sm:h-[55%] h-[50%] w-[90%] sm:w-[40%] p-2 sm:p-5 mt-14 sm:mt-0 flex flex-col items-center bg-[#f3f2f2] shadow-xl">
+            class="card-login sm:h-[65%] h-[50%] w-[90%] sm:w-[40%] p-2 sm:p-5 mt-14 sm:mt-0 flex flex-col items-center bg-[#f3f2f2] shadow-xl">
             <div class="title text-xl font-bold font-Playfair mb-3">
                 User Login
             </div>
@@ -64,7 +64,7 @@
                     @csrf
                     <div class=" flex justify-center">
                         <input type="text" name="username" id="username"
-                            class="border border-gray-300 w-[90%] sm:w-[80%] h-10 px-5 placeholder:text-base @error('username')
+                            class="border border-gray-300 w-[90%] sm:w-[80%] h-10 px-5 text-sm placeholder:text-sm @error('username')
                                 border-red-500
                             @enderror"
                             placeholder="Username">
@@ -75,7 +75,7 @@
 
                     <div class="flex justify-center">
                         <input type="password" name="password" id="password"
-                            class="border border-gray-300 w-[90%] sm:w-[80%] h-10 px-5 mt-3 placeholder:text-base @error('password')
+                            class="border border-gray-300 w-[90%] sm:w-[80%] h-10 px-5 mt-3 text-sm placeholder:text-sm @error('password')
                             border-red-500
                         @enderror"
                             placeholder="Password">

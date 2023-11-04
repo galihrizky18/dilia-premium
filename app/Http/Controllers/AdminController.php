@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Charts\UserChart;
 use App\Models\Pelanggan;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,15 @@ class AdminController extends Controller
 
         return view('pages/admin/kelolaUser', compact('userCurrent', 'dataAdmin', 'dataUser'));
     }
+    
+    public function ulasan(){
+        $userCurrent = Auth::user();
+        $dataAdmin = $userCurrent->admins->first();
+        $dataTesti = Testimonial::all();
+
+        return view('pages/admin/ulasan', compact('userCurrent', 'dataAdmin', 'dataTesti'));
+    }
+
     public function filterStatus(Request $request){
         $userCurrent = Auth::user();
         $dataAdmin = $userCurrent->admins->first();
@@ -91,6 +101,17 @@ class AdminController extends Controller
             $pelanggan->delete();
         }
         return redirect()->back()->with('successDelete', 'Data Berhasil Di Hapus');
+    }
+    public function deleteTesti(Request $request){
+        $testi = Testimonial::where('id_user', $request->id_user)->where('komentar',  'like', "%$request->komentar%")->first();
+ 
+        if($testi->delete()){
+
+            return redirect()->back()->with('successDelete', 'Data Berhasil Di Hapus');
+        }
+        return redirect()->back()->with('failDelete', 'Data Gagal Di Hapus');
+        
+
     }
 
 

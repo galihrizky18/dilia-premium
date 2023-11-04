@@ -19,10 +19,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        for ($i=0; $i < 300; $i++) { 
+            User::factory()->create();
+            Pelanggan::factory()->create();
+        }
+        // Pelanggan::factory(30)->create();
 
         User::create([
             'id_user' => 'A1',
@@ -59,65 +60,65 @@ class DatabaseSeeder extends Seeder
         ]);
         Pelanggan::create([
             'id_pelanggan'=>'P1',
-            'first_name'=>'Rizky ',
-            'last_name'=>'Gantengs',
+            'first_name'=>'User ',
+            'last_name'=>'1',
             'provinsi'=>'Sumatera Selatan',
             'kota'=>'Palembang',
             'noHp'=>'08123456789',
         ]);
         Pelanggan::create([
             'id_pelanggan'=>'P2',
-            'first_name'=>'Heru ',
-            'last_name'=>'Gantengs',
+            'first_name'=>'User ',
+            'last_name'=>'2',
             'provinsi'=>'Sumatera Selatan',
             'kota'=>'Palembang',
             'noHp'=>'08123456789',
         ]);
         Pelanggan::create([
             'id_pelanggan'=>'P3',
-            'first_name'=>'Dico ',
-            'last_name'=>'Gantengs',
+            'first_name'=>'User ',
+            'last_name'=>'3',
             'provinsi'=>'Sumatera Selatan',
             'kota'=>'Palembang',
             'noHp'=>'08123456789',
         ]);
         Admin::create([
             'id_admin'=> 'A1',
-            'first_name'=> 'Garix ',
-            'last_name'=> 'Kece Badai',
+            'first_name'=> 'Admin ',
+            'last_name'=> '1',
             'provinsi'=> 'Sumatera Selatan',
-            'kota'=> 'Lubuk Linggau',
+            'kota'=> 'Palembang',
             'noHp'=> '089754788383843',
         ]);
         Admin::create([
             'id_admin'=> 'A2',
-            'first_name'=> 'Rifvo ',
-            'last_name'=> 'Kece Badai',
+            'first_name'=> 'Admin ',
+            'last_name'=> '2',
             'provinsi'=> 'Sumatera Selatan',
-            'kota'=> 'Lubuk Linggau',
+            'kota'=> 'Palembang',
             'noHp'=> '089754788383843',
         ]);
 
         Testimonial::create([
             'id_user'=> 'P2',
-            'first_name'=>'Heru ',
-            'last_name'=>'Gantengs',
+            'first_name'=>'User',
+            'last_name'=>'2',
             'noHp'=>'08123456789',
             'komentar'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, iure enim. Totam, explicabo necessitatibus! Facilis dolore maxime aspernatur temporibus ab.
             ',
         ]);
         Testimonial::create([
             'id_user'=> 'P1',
-            'first_name'=>'Rizky ',
-            'last_name'=>'Gantengs',
+            'first_name'=>'User ',
+            'last_name'=>'1',
             'noHp'=>'08123456789',
             'komentar'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, iure enim. Totam, explicabo necessitatibus! Facilis dolore maxime aspernatur temporibus ab.
             ',
         ]);
         Testimonial::create([
             'id_user'=> 'P3',
-            'first_name'=>'Dico ',
-            'last_name'=>'Gantengs',
+            'first_name'=>'User ',
+            'last_name'=>'3',
             'noHp'=>'08123456789',
             'komentar'=> 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, iure enim. Totam, explicabo necessitatibus! Facilis dolore maxime aspernatur temporibus ab.
             ',

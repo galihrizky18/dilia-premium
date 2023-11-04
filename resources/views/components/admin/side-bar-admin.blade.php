@@ -22,7 +22,8 @@
         </div>
         <div class="body-sideBar h-full overflow-y-auto ">
             <div class="user-login  h-10 flex items-center justify-center border-b-[1px] border-gray-400">
-                <span class="text-base font-playfair ">{{ $userCurrent->first_name }}</span>
+                <span class="text-base font-playfair ">{{ $userCurrent->first_name }}
+                    {{ $userCurrent->last_name }}</span>
             </div>
             <div class="menu flex flex-col font-della mt-2 text-sm">
                 <a href="/admin">
@@ -39,13 +40,15 @@
                         <div class="ml-3 col-span-7">Kelola User</div>
                     </div>
                 </a>
-                <a href="">
+                <a href="/admin/ulasan">
                     <div
-                        class="menu2 p-2 grid grid-cols-8 items-center rounded-xl hover:bg-blue-600 hover:font-bold transition duration-200">
-                        <img src="{{ asset('asset/icon-ulasan.svg') }}" alt="" class="w-7 ">
+                        class="menu1 p-2 grid grid-cols-8 items-center rounded-xl hover:bg-blue-600 hover:font-bold active:bg-blue-600 transition duration-200">
+                        <img src="{{ asset('asset/icon-ulasan.svg') }}" alt="" class="w-7">
+
                         <div class="ml-3 col-span-7">Ulasan</div>
                     </div>
                 </a>
+
             </div>
         </div>
         <div class="logout">

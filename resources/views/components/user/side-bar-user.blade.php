@@ -4,7 +4,7 @@
         <img src="{{ asset('asset/logo.png') }}" alt="" class="w-[30%]">
     </div>
     <div class="menu">
-        <ul class="flex flex-row items-center gap-5 text-lg">
+        <ul class="flex flex-row items-center gap-5 text-base">
             <a href="#home">
                 <li class="">
                     HOME

@@ -25,16 +25,18 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::post('testi', [TestimonialController::class, 'createTesti']);
 
-
 Route::middleware(['auth', 'userRole:admin'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dashboard']);
     Route::get('/users', [AdminController::class, 'kelolaUser']);
+    Route::get('/ulasan', [AdminController::class, 'ulasan']);
     Route::prefix('filter')->group(function(){
         Route::post('status', [AdminController::class, 'filterStatus']);
     });
     Route::post('/user/{id}', [AdminController::class, 'updateUser']);
     Route::delete('/user/{id}', [AdminController::class, 'deleteUser']);
+    Route::post('/testi/{data}', [AdminController::class, 'deleteTesti']);
 });
+
 Route::middleware('auth', 'userRole:user')->group(function (){
     Route::prefix('user')->group(function (){
         Route::post('/bePremium/{id}', [UserController::class, 'jadiPremium'])->name('user.bePremium');
