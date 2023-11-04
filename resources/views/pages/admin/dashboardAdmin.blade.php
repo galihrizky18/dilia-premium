@@ -39,7 +39,7 @@
                     <span class="text-blue-600 font-bold text-sm sm:text-base">{{ $countNonPremiumUser }}</span>
                 </div>
                 <div class="title ml-[7%]">
-                    <span class="text-gray-500 font-bold text-sm sm:text-base">User Premium</span>
+                    <span class="text-gray-500 font-bold text-sm sm:text-base">User Non - Premium</span>
                 </div>
             </div>
             <div
@@ -49,7 +49,7 @@
                     <span class="text-blue-600 font-bold text-sm sm:text-base">{{ $countAllUser }}</span>
                 </div>
                 <div class="title ml-[7%]">
-                    <span class="text-gray-500 font-bold text-sm sm:text-base">User Premium</span>
+                    <span class="text-gray-500 font-bold text-sm sm:text-base">All User</span>
                 </div>
             </div>
 
