@@ -70,7 +70,7 @@
             <div
                 class="cards flex flex-col w-full sm:w-[20%] h-full gap-3 p-3 bg-white shadow-xl rounded-xl border border-gray-500">
                 <div class="gambar flex justify-center">
-                    <img src="{{ asset('asset/icon-listrik.svg') }}" alt="" class="w-[50%]">
+                    <img src="{{ asset('asset/icon-potensial.svg') }}" alt="" class="w-[50%]">
                 </div>
                 <div class="title text-center font-bold sm:text-base text-sm">
                     Berlaku Untuk Semua Pelanggan Potensial PLN
